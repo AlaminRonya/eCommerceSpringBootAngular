@@ -1,5 +1,6 @@
 package com.alamin.ecommerce.controller;
 
+import com.alamin.ecommerce.dto.ProductDTO;
 import com.alamin.ecommerce.entity.Product;
 import com.alamin.ecommerce.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,9 @@ public class ProductApiRestController {
     @Autowired
     private ProductService productService;
     @GetMapping("/all")
-    public List<Product> getAllProduct(){
+    public List<ProductDTO> getAllProduct(){
+        final List<ProductDTO> all = productService.getAll();
+        all.stream().forEach(System.out::println);
         return productService.getAll();
     }
 }
