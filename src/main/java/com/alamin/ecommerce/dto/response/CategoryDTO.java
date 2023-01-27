@@ -1,4 +1,4 @@
-package com.alamin.ecommerce.dto;
+package com.alamin.ecommerce.dto.response;
 
 
 public record CategoryDTO(

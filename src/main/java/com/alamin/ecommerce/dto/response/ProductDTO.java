@@ -1,6 +1,6 @@
-package com.alamin.ecommerce.dto;
+package com.alamin.ecommerce.dto.response;
 
-import com.alamin.ecommerce.entity.ProductCategory;
+import com.alamin.ecommerce.dto.response.CategoryDTO;
 
 import java.math.BigDecimal;
 import java.util.Date;

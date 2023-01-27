@@ -1,12 +1,12 @@
 package com.alamin.ecommerce.controller;
 
-import com.alamin.ecommerce.dto.ProductDTO;
-import com.alamin.ecommerce.entity.Product;
+import com.alamin.ecommerce.dto.request.RequestProductDTO;
+import com.alamin.ecommerce.dto.response.ProductDTO;
 import com.alamin.ecommerce.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 @RestController
@@ -14,10 +14,17 @@ import java.util.List;
 public class ProductApiRestController {
     @Autowired
     private ProductService productService;
+
     @GetMapping("/all")
-    public List<ProductDTO> getAllProduct(){
+    public ResponseEntity<List<ProductDTO>> getAllProduct(){
         final List<ProductDTO> all = productService.getAll();
         all.stream().forEach(System.out::println);
-        return productService.getAll();
+        return new ResponseEntity<>(productService.getAll(), HttpStatus.OK);
+    }
+
+    @PostMapping("/add")
+    public ResponseEntity<String> addProduct(@RequestBody RequestProductDTO dto){
+        productService.add(dto);
+        return new ResponseEntity<>("Add product!", HttpStatus.CREATED);
     }
 }

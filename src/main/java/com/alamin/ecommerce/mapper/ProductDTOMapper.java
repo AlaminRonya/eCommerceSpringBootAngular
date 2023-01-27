@@ -1,7 +1,7 @@
 package com.alamin.ecommerce.mapper;
 
-import com.alamin.ecommerce.dto.CategoryDTO;
-import com.alamin.ecommerce.dto.ProductDTO;
+import com.alamin.ecommerce.dto.response.CategoryDTO;
+import com.alamin.ecommerce.dto.response.ProductDTO;
 import com.alamin.ecommerce.entity.Product;
 import org.springframework.stereotype.Service;
 
