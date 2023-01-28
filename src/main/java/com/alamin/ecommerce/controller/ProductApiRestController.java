@@ -17,8 +17,8 @@ public class ProductApiRestController {
 
     @GetMapping("/all")
     public ResponseEntity<List<ProductDTO>> getAllProduct(){
-        final List<ProductDTO> all = productService.getAll();
-        all.stream().forEach(System.out::println);
+        //final List<ProductDTO> all = productService.getAll();
+        //all.stream().forEach(System.out::println);
         return new ResponseEntity<>(productService.getAll(), HttpStatus.OK);
     }
 
@@ -26,5 +26,14 @@ public class ProductApiRestController {
     public ResponseEntity<String> addProduct(@RequestBody RequestProductDTO dto){
         productService.add(dto);
         return new ResponseEntity<>("Add product!", HttpStatus.CREATED);
+    }
+    @GetMapping("/delete/{id}")
+    public ResponseEntity<String> deleteProduct(@PathVariable("id") String id){
+        try {
+
+        }catch (Exception e){
+
+        }
+        return new ResponseEntity<>("Product deleted!", HttpStatus.ACCEPTED);
     }
 }
