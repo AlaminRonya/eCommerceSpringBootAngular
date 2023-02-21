@@ -27,12 +27,13 @@ public class ProductApiRestController {
         productService.add(dto);
         return new ResponseEntity<>("Add product!", HttpStatus.CREATED);
     }
-    @GetMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> deleteProduct(@PathVariable("id") String id){
         try {
-
+            long i = Long.parseLong(id);
+            productService.delete(i);
         }catch (Exception e){
-
+            return new ResponseEntity<>("Product deleted!", HttpStatus.BAD_REQUEST);
         }
         return new ResponseEntity<>("Product deleted!", HttpStatus.ACCEPTED);
     }

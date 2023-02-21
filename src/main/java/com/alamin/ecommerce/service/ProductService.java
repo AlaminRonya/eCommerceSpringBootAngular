@@ -53,4 +53,8 @@ public class ProductService {
         product.setCategory(category);
         productRepository.save(product);
     }
+
+    public void delete(Long i) {
+        productRepository.deleteById(i);
+    }
 }
